@@ -1,0 +1,200 @@
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(45deg, #c5a3ff 0%, #8f7aff 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.title {
+    color: white;
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Calculator Container */
+.calculator {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 30px;
+    padding: 2rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    position: relative;
+    width: 350px;
+}
+
+/* Cat Ears */
+.cat-ears {
+    position: absolute;
+    top: -20px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 40px;
+}
+
+.ear {
+    width: 35px;
+    height: 35px;
+    background: #d4b5ff;
+    position: relative;
+}
+
+.ear.left {
+    transform: rotate(-30deg) skew(20deg);
+    border-radius: 20px 0 0 0;
+}
+
+.ear.right {
+    transform: rotate(30deg) skew(-20deg);
+    border-radius: 0 20px 0 0;
+}
+
+/* Display */
+.display {
+    background: rgba(255, 255, 255, 0.95);
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+    border-radius: 20px;
+    text-align: right;
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.previous-operand {
+    font-size: 1.2rem;
+    color: rgba(108, 92, 231, 0.7);
+    min-height: 1.5rem;
+}
+
+.current-operand {
+    font-size: 2.5rem;
+    color: #6c5ce7;
+    font-weight: bold;
+}
+
+/* Button Grid */
+.button-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 30px; /* Añadido espacio para los bigotes */
+}
+
+button {
+    border: none;
+    padding: 1.2rem;
+    font-size: 1.3rem;
+    border-radius: 50%;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.8);
+    color: #6c5ce7;
+    transition: all 0.3s ease;
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+    background: rgba(255, 255, 255, 0.95);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.special {
+    background: #e2c6ff;
+    color: #6c5ce7;
+}
+
+.operator {
+    background: #d4b5ff;
+    color: white;
+}
+
+.equals {
+    background: #a18fff;
+    color: white;
+    border-radius: 50%;
+}
+
+.zero {
+    grid-column: span 2;
+    border-radius: 25px;
+    aspect-ratio: 2;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+/* Cat Whiskers - Posición actualizada */
+.whiskers {
+    position: absolute;
+    bottom: 45px; /* Ajustado de 20px a 45px */
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.whisker-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.whisker {
+    width: 80px;
+    height: 1.5px;
+    background: rgba(255, 255, 255, 0.6);
+}
+
+.whisker-group.left .whisker {
+    transform-origin: left;
+}
+
+.whisker-group.left .whisker:nth-child(1) { transform: rotate(-15deg); }
+.whisker-group.left .whisker:nth-child(2) { transform: rotate(-5deg); }
+.whisker-group.left .whisker:nth-child(3) { transform: rotate(5deg); }
+
+.whisker-group.right .whisker {
+    transform-origin: right;
+}
+
+.whisker-group.right .whisker:nth-child(1) { transform: rotate(15deg); }
+.whisker-group.right .whisker:nth-child(2) { transform: rotate(5deg); }
+.whisker-group.right .whisker:nth-child(3) { transform: rotate(-5deg); }
+
+@media (max-width: 400px) {
+    .calculator {
+        width: 90vw;
+        padding: 1.5rem;
+    }
+    
+    button {
+        padding: 1rem;
+        font-size: 1.1rem;
+    }
+    
+    .title {
+        font-size: 2rem;
+    }
+}
